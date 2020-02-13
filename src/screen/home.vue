@@ -14,7 +14,15 @@
                     <image :source="{uri: testapione.preview_image_url}" class="manga__img__pict"
                     :style="{width: 200, height: 300}" />
                     <!-- поифкисть это -->
-                    <text :on-press="() => navigation.navigate('Detail', {mangaId: testapione.id})" class="manga__title">
+                    <text :on-press="() => navigation.navigate('Detail', {
+                        
+                        mangaId: testapione.id,
+                        mangaTitle: testapione.title,
+                        mangaPreview: testapione.preview_image_url,
+                        mangaDescription: testapione.description,
+                        mangaChapters: testapione.chapter_set,
+                        
+                        })" class="manga__title">
                       {{ testapione.title }}
                     </text>
                   

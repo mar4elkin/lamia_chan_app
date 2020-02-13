@@ -1,7 +1,12 @@
 <template>
   <view class="container">
-    <text> manga id = {{ navigation.getParam("mangaId") }} </text>
-    <button title="Go to home screen" @press="goToHomeScreen"></button>
+
+      <text>{{ navigation.getParam("mangaId") }} </text>
+      <text>{{ navigation.getParam("mangaTitle") }} </text>
+      <image :source="{uri: detail_image }" :style="{width: 200, height: 300}" />
+      <text>{{ navigation.getParam("mangaDescription") }} </text>
+      <!--<button title="Go to home screen" @press="goToHomeScreen"></button>-->
+      <text>{{ navigation.getParam("mangaChapters") }}</text>
   </view>
 </template>
 
@@ -16,6 +21,7 @@ export default {
   name: 'app',
     data(){
     return {
+      detail_image: this.navigation.getParam("mangaPreview"),
     }
   },
   methods: {
