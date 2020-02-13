@@ -108,5 +108,6 @@ export default {
         top:84%;
 
     }
+
 </style>
 <!-- Global styles -->
