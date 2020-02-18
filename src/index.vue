@@ -10,11 +10,13 @@ import {
 
 import HomeScreen from "./screen/home.vue";
 import DetailScreen from "./screen/detail.vue";
+import ReadScreen from "./screen/read.vue";
 
 const StackNavigator = createStackNavigator(
   {
     Home: HomeScreen,
     Detail: DetailScreen,
+    Read: ReadScreen,
   },
   {
     initialRouteName: 'Home',

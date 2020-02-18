@@ -21,7 +21,15 @@
             
             <view class="chapters_container">
               <view class="chapter_elm" v-for="(chapter,index) in chapters" :key="index" :style="{borderBottomColor: '#11998e',borderBottomWidth: 1,marginBottom: 2,}">
-                <text>{{ chapter.title }}</text>
+                 <text :on-press="() => navigation.navigate('Read', {
+                        
+                        chapterId: chapter.id,
+                        
+                        })">
+                      {{ chapter.title }}
+                  </text>
+
+                
               </view>
             </view>
           
