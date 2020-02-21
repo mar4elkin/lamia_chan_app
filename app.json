@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Blank Template",
-    "slug": "LamiaChanVueNative",
+    "name": "Lamia Chan app",
+    "slug": "lamia_chan_app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -11,9 +11,10 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/tenor.gif",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -25,16 +26,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "packagerOpts": {
-      "config": "metro.config.js",
-      "sourceExts": [
-        "js",
-        "json",
-        "ts",
-        "tsx",
-        "vue"
-      ]
     }
   }
 }
