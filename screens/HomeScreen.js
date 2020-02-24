@@ -1,7 +1,19 @@
 import React from 'react';
-import { FlatList, ActivityIndicator, Text, View, Image, StyleSheet } from 'react-native';
+import { FlatList, ActivityIndicator, Text, View, Image, StyleSheet, Button } from 'react-native';
 
-export default class FetchExample extends React.Component {
+import {
+  NavigationContainer,
+  NavigationContext,
+} from '@react-navigation/native';
+
+import { createStackNavigator } from '@react-navigation/stack';
+
+function HomeScreen() {
+  return <FetchExample />;
+}
+
+class FetchExample extends React.Component {
+  static contextType = NavigationContext;
 
   constructor(props){
     super(props);
@@ -27,9 +39,7 @@ export default class FetchExample extends React.Component {
   }
 
 
-
   render(){
-
     if(this.state.isLoading){
       return(
         <View style={{flex: 1, padding: 20}}>
@@ -38,11 +48,13 @@ export default class FetchExample extends React.Component {
       )
     }
 
+    const navigation = this.context;
+
     return(
 
       <View style={styles.MainContainer}>
         <FlatList
-          data={ this.state.dataSource }
+          data={ this.state.dataSource.results }
           ItemSeparatorComponent = {this.FlatListItemSeparator}
           renderItem={({item}) => 
               <View>
@@ -50,7 +62,8 @@ export default class FetchExample extends React.Component {
                       source = {{ uri: item.preview_image_url }} 
                       style={styles.imageView} 
                 />
-                <Text onPress={() => navigation.navigate('LinksScreen', {name: 'Jane'})}  style={styles.textView}>{item.title}</Text>
+                <Text onPress={() => navigation.navigate('Манга', { mangaId: item.id })}
+                      style={styles.textView}>{item.title}</Text>
               </View>
             }
           keyExtractor={(item, index) => index.toString()}
@@ -59,6 +72,30 @@ export default class FetchExample extends React.Component {
     );
   }
 }
+
+function MangaScreen({ route, navigation }) {
+
+  const { mangaId } = route.params;
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text> { JSON.stringify(mangaId) } </Text>
+    </View>
+  );
+}
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+      <Stack.Navigator initialRouteName="Каталог">
+        <Stack.Screen name="Каталог" component={HomeScreen} />
+        <Stack.Screen name="Манга" component={MangaScreen} />
+      </Stack.Navigator>
+  );
+}
+
+export default App;
 
 const styles = StyleSheet.create({
 
