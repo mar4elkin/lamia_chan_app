@@ -1,9 +1,7 @@
 {
   "expo": {
-    "name": "Lamia Chan app",
-    "slug": "lamia_chan_app",
-    "privacy": "public",
-    "sdkVersion": "36.0.0",
+    "name": "Lamia_chan_mobile",
+    "slug": "Lamia_chan_mobile",
     "platforms": [
       "ios",
       "android",
@@ -11,10 +9,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/images/tenor.gif",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
